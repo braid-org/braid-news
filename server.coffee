@@ -346,7 +346,7 @@ bus('tags').to_fetch = (key) -> default_arr key
 express = require 'express'
 send_file = (f) -> (r, res) -> res.sendFile(__dirname + f)
 bus.http.use('/*', (req, res, next) ->
-  if req.headers.accept.includes('html')
+  if req.headers.accept?.includes('html')
     res.sendFile(__dirname + '/static/news.html')
   else
     next()
